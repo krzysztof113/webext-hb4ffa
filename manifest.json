@@ -1,0 +1,38 @@
+{
+	 "applications": {
+    "gecko": {
+       "id": "homebutton4ffandroid@bootstrap"
+    }
+ },
+  "manifest_version": 2,
+  "name": "Home Button for firefox on android",
+  "version": "2.1",
+  "description": "Touch home icon to go to about:home. Double tap to close tab.",
+  "homepage_url": "https://addons.mozilla.org/en-US/android/addon/home-button-for-ff-on-android/",
+  "icons": {
+    "48": "icons/home_v2.svg",
+    "96": "icons/home_v2.svg"
+  },
+
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage"
+  ],
+
+  "page_action": {
+    "default_icon": {
+      "19": "icons/home_v2.svg",
+      "38": "icons/home_v2.svg"
+    },
+    "default_title": "Home",
+	  "browser_style": false
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+	  "options_ui": {
+    "page": "options.html"
+  }
+}
