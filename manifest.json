@@ -5,8 +5,8 @@
     }
  },
   "manifest_version": 2,
-  "name": "Home Button for firefox on android",
-  "version": "2.1",
+  "name": "Home Button for FF on android",
+  "version": "2.2",
   "description": "Touch home icon to go to about:home. Double tap to close tab.",
   "homepage_url": "https://addons.mozilla.org/en-US/android/addon/home-button-for-ff-on-android/",
   "icons": {

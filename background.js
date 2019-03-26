@@ -1,7 +1,7 @@
-debug = true;
+debug = false;
 var alreadyClicked = false;
 var timer;
-if (debug) console.log("Ver 11");
+if (debug) console.log("Ver 2.2");
 browser.tabs.onActivated.addListener(() => { showPageAction(); });
 browser.tabs.onUpdated.addListener(() => { showPageAction(); });
 
@@ -45,39 +45,39 @@ browser.pageAction.onClicked.addListener((activeTab) => {
 	if (debug) console.log("Page Action onClick End");
 });
 
-
 function goHome(homeURL, activeTab) {
 	  if (homeURL === undefined || homeURL == "") {
-		if (debug) console.log("goHome Url undef");
-			if (activeTab.url !== 'about:home') {
+			browser.tabs.update({url: 'https://www.google.com/'});
+		//if (debug) console.log("goHome Url undef");
+			//if (activeTab.url !== 'about:home') {
 
-					ativeTabId = activeTab.id;
-					var gettingTabs = browser.tabs.query({});
-					gettingTabs.then((tabs) => {
-						tabsCount = tabs.length;
-						createProperties = [];
-						if (debug) console.log("Saving current tabs");
-						for (i = 0; i < tabsCount; i++) {
-							if (debug) console.log("Rem TabId: "+i);
-							currentTab = {};
-							if (tabs[i].id !== ativeTabId) {
-								currentTab.url = tabs[i].url;
-								createProperties.push(currentTab);
-							}
-							browser.tabs.remove(tabs[i].id);
-						}
-						if (debug) console.log("Recreating other tabs");
-						for (j = 0; j < tabsCount; j++) {
-							if (debug) console.log(JSON.stringify(createProperties[j]));
-							createProperties[j].active = false;
-							try {
-								browser.tabs.create(createProperties[j]);
-							}
-							catch(err) {;}
-						}
-						browser.tabs.get(0).active = true;
-					});
-			}
+					//ativeTabId = activeTab.id;
+					//var gettingTabs = browser.tabs.query({});
+					//gettingTabs.then((tabs) => {
+						//tabsCount = tabs.length;
+						//createProperties = [];
+						// if (debug) console.log("Saving current tabs");
+						// for (i = 0; i < tabsCount; i++) {
+						// 	if (debug) console.log("Rem TabId: "+i);
+						// 	currentTab = {};
+						// 	if (tabs[i].id !== ativeTabId) {
+						// 		currentTab.url = tabs[i].url;
+						// 		createProperties.push(currentTab);
+						// 	}
+						// 	browser.tabs.remove(tabs[i].id);
+						// }
+						// if (debug) console.log("Recreating other tabs");
+						// for (j = 0; j < tabsCount; j++) {
+						// 	if (debug) console.log(JSON.stringify(createProperties[j]));
+						// 	createProperties[j].active = false;
+						// 	try {
+						// 		browser.tabs.create(createProperties[j]);
+						// 	}
+						// 	catch(err) {;}
+						// }
+						//browser.tabs.get(0).active = true;
+					//});
+			//}
 	  } else {
 		if (debug) console.log("goHome Url Def "+homeURL);
 		    browser.tabs.update({url: homeURL});
